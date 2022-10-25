@@ -51181,7 +51181,7 @@ const makePdfDoc = async () => {
     return await fetch("/fonts/ipamp.ttf").then((res) => res.arrayBuffer());
   };
   return await Promise.all([makePdfDocInstance(), getFont()]).then(async ([pdfDoc, fontRaw]) => {
-    const fontIpamp = await pdfDoc.embedFont(fontRaw);
+    const fontIpamp = await pdfDoc.embedFont(fontRaw, { subset: true });
     return {
       pdfDoc,
       fontIpamp

@@ -17,7 +17,7 @@ export const makePdfDoc = async (): Promise<{
   return await Promise.all([makePdfDocInstance(), getFont()])
     .then(async ([pdfDoc, fontRaw]) => {
       // フォント埋め込み
-      const fontIpamp = await pdfDoc.embedFont(fontRaw);
+      const fontIpamp = await pdfDoc.embedFont(fontRaw, {subset: true});
       return {
         pdfDoc, fontIpamp
       }
