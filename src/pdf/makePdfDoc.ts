@@ -12,7 +12,7 @@ export const makePdfDoc = async (): Promise<{
     return pdfDoc;
   }
   const getFont = async () => {
-    return await fetch('/fonts/ipamp.ttf').then((res) => res.arrayBuffer());
+    return await fetch('/pdf-lib-demo/fonts/ipamp.ttf').then((res) => res.arrayBuffer());
   }
   return await Promise.all([makePdfDocInstance(), getFont()])
     .then(async ([pdfDoc, fontRaw]) => {
